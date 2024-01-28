@@ -1,1 +1,0 @@
- gcc test/test_coin.c src/coin.c src/myrandom.c -lcmocka -I include/ -Wl,--wrap=myrandom_generate
