@@ -2,7 +2,7 @@
 Starter code for a c repository with cmocka unit testing
 
 ## Dependencies
-It requires cmocka installed. Ubuntu package: libcmocka-dev. Binaries available for windows.
+It requires cmocka installed. Ubuntu package: libcmocka-dev. Binaries and source code available for Windows.
 
 ## Build the example
 The repository can be built with cmake. The generated binaries are:
@@ -24,4 +24,13 @@ coin tests:
 gcc test/test_coin.c src/coin.c src/myrandom.c -lcmocka -I include/ -Wl,--wrap=myrandom_generate -o coin_tests
 tests:
 gcc test/test_coindi.c src/coindi.c src/myrandom.c -lcmocka -I include/ -o coindi_tests
+
+### Building on Windows
+- Specify your cmocka install directory with the CMOCKA_INSTALL_PATH environment variable
+```
+set CMOCKA_INSTALL_PATH=C:\cmocka
+cmake . -G "MinGW Makefiles"
+mingw32-make
+```
+- The generated executables depend on libcmocka.dll at runtime, make sure it's accessible to your application (e.g. add cmocka\bin to your path) 
 
